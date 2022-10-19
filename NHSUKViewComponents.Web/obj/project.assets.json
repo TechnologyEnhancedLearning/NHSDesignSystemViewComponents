@@ -7671,11 +7671,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Oluwatobi.awe\\Source\\Repos\\TechnologyEnhancedLearning\\NHSDesignSystemViewComponents\\NHSUKViewComponents.Web\\NHSUKViewComponents.Web.csproj",
+      "projectUniqueName": "C:\\Users\\Oluwatobi.awe\\source\\repos\\TechnologyEnhancedLearning\\NHSDesignSystemViewComponents\\NHSUKViewComponents.Web\\NHSUKViewComponents.Web.csproj",
       "projectName": "NHSUKViewComponents.Web",
-      "projectPath": "C:\\Users\\Oluwatobi.awe\\Source\\Repos\\TechnologyEnhancedLearning\\NHSDesignSystemViewComponents\\NHSUKViewComponents.Web\\NHSUKViewComponents.Web.csproj",
+      "projectPath": "C:\\Users\\Oluwatobi.awe\\source\\repos\\TechnologyEnhancedLearning\\NHSDesignSystemViewComponents\\NHSUKViewComponents.Web\\NHSUKViewComponents.Web.csproj",
       "packagesPath": "C:\\Users\\Oluwatobi.awe\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Oluwatobi.awe\\Source\\Repos\\TechnologyEnhancedLearning\\NHSDesignSystemViewComponents\\NHSUKViewComponents.Web\\obj\\",
+      "outputPath": "C:\\Users\\Oluwatobi.awe\\source\\repos\\TechnologyEnhancedLearning\\NHSDesignSystemViewComponents\\NHSUKViewComponents.Web\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Oluwatobi.awe\\AppData\\Roaming\\NuGet\\NuGet.Config",

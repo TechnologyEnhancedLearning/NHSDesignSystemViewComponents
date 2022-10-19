@@ -2,11 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Description>NHS Design System View Components</Description>
     <PackageProjectUrl>https://github.com/TechnologyEnhancedLearning/NHSDesignSystemViewComponents</PackageProjectUrl>
     <RepositoryUrl>https://github.com/TechnologyEnhancedLearning/NHSDesignSystemViewComponents</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
+    <PackageId>NHSUKViewComponents.Web</PackageId>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
