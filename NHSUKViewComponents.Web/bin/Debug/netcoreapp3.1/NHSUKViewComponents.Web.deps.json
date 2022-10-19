@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "NHSUKViewComponents.Web/1.0.0": {
+      "NHSUKViewComponents.Web/0.0.2": {
         "dependencies": {
           "Microsoft.AspNetCore.Mvc.Razor": "2.2.0",
           "Microsoft.AspNetCore.Mvc.ViewFeatures": "2.2.0"
@@ -1565,7 +1565,7 @@
     }
   },
   "libraries": {
-    "NHSUKViewComponents.Web/1.0.0": {
+    "NHSUKViewComponents.Web/0.0.2": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>NHSUKViewComponents.Web</id>
+    <version>0.0.2</version>
+    <authors>NHSUKViewComponents.Web</authors>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <projectUrl>https://github.com/TechnologyEnhancedLearning/NHSDesignSystemViewComponents</projectUrl>
+    <description>NHS Design System View Components</description>
+    <repository type="git" url="https://github.com/TechnologyEnhancedLearning/NHSDesignSystemViewComponents" />
+    <dependencies>
+      <group targetFramework=".NETCoreApp3.1">
+        <dependency id="Microsoft.AspNetCore.Mvc.Razor" version="2.2.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.AspNetCore.Mvc.ViewFeatures" version="2.2.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\Oluwatobi.awe\source\repos\TechnologyEnhancedLearning\NHSDesignSystemViewComponents\NHSUKViewComponents.Web\bin\Debug\netcoreapp3.1\NHSUKViewComponents.Web.dll" target="lib\netcoreapp3.1\NHSUKViewComponents.Web.dll" />
+  </files>
+</package>

@@ -7669,7 +7669,7 @@
     "C:\\Users\\Oluwatobi.awe\\.nuget\\packages\\": {}
   },
   "project": {
-    "version": "1.0.0",
+    "version": "0.0.2",
     "restore": {
       "projectUniqueName": "C:\\Users\\Oluwatobi.awe\\source\\repos\\TechnologyEnhancedLearning\\NHSDesignSystemViewComponents\\NHSUKViewComponents.Web\\NHSUKViewComponents.Web.csproj",
       "projectName": "NHSUKViewComponents.Web",
@@ -7685,8 +7685,8 @@
         "netcoreapp3.1"
       ],
       "sources": {
+        "C:\\NugetSource": {},
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {},
         "https://pkgs.dev.azure.com/e-LfH/_packaging/LearningHubFeed/nuget/v3/index.json": {}
       },
       "frameworks": {
