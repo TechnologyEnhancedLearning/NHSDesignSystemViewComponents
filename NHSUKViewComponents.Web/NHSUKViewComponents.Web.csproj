@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -9,54 +9,19 @@
     <RepositoryType>git</RepositoryType>
     <PackageId>NHSUKViewComponents.Web</PackageId>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>0.0.2</Version>
+    <Version>0.0.36</Version>
   </PropertyGroup>
+
+ 
+  <ItemGroup>
+	<None Include="Css\Shared\Components\*" Pack="true" PackagePath="wwwroot\css\shared\components\"></None>
+    <None Include="Views\Shared\Components\**\*.*" Pack="true" PackagePath="Views\Shared\Components"></None>
+	<None Include="build\NHSUKViewComponents.Web.props" Pack="true" PackagePath="build"></None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.2.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="Views\ActionLink\Default.cshtml">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </None>
-    <None Update="Views\BackLink\Default.cshtml">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </None>
-    <None Update="Views\CancelLink\Default.cshtml">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </None>
-    <None Update="Views\Checkboxes\Default.cshtml">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </None>
-    <None Update="Views\DateInput\Default.cshtml">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </None>
-    <None Update="Views\DateRangeInput\Default.cshtml">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </None>
-    <None Update="Views\ErrorSummary\Default.cshtml">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </None>
-    <None Update="Views\FileInput\Default.cshtml">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </None>
-    <None Update="Views\NumericInput\Default.cshtml">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </None>
-    <None Update="Views\Radios\Default.cshtml">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </None>
-    <None Update="Views\SelectList\Default.cshtml">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </None>
-    <None Update="Views\SingleCheckbox\Default.cshtml">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </None>
-    <None Update="Views\TextArea\Default.cshtml">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
 
 </Project>
