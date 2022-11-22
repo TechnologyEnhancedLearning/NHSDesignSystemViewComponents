@@ -1,0 +1,16 @@
+name: Continuous Integration
+on: [push]
+jobs:
+  build:
+    name: Build and test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup .NET Core SDK 60
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 6.0.x
+
+      - name: Dotnet build
+        run: dotnet build NHSUKViewComponents.sln
