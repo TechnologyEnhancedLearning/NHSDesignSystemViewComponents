@@ -13,4 +13,4 @@ jobs:
           dotnet-version: 6.0.x
 
       - name: Dotnet build
-        run: dotnet build GDSMultiPageFormService.sln
+        run: dotnet build NHSUKViewComponents.sln
