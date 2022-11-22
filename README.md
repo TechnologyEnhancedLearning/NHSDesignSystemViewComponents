@@ -4,7 +4,6 @@
 A set of View Components designed to allow .Net developers easy access to [NHS Design System Components](https://service-manual.nhs.uk/design-system/components).
 Each View Component provides reliable implementation of the NHS Design System component markup so that instead of:
 ```
-{
   <div class="nhsuk-form-group">
   <fieldset class="nhsuk-fieldset" aria-describedby="example-hint" role="group">
     <legend class="nhsuk-fieldset__legend nhsuk-label--l">
@@ -45,7 +44,6 @@ Each View Component provides reliable implementation of the NHS Design System co
   </fieldset>
 
 </div>
-}
 ```
 In your Razor markup, you can use:
 ```
