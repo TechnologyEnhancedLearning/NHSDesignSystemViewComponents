@@ -9,7 +9,7 @@
     <RepositoryType>git</RepositoryType>
     <PackageId>NHSUKViewComponents.Web</PackageId>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>1.0.1</Version>
+    <Version></Version>
     <Authors>HEE TEL</Authors>
   </PropertyGroup>
 
