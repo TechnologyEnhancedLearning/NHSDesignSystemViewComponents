@@ -37,7 +37,7 @@ jobs:
             echo "NuGetVersionV2: ${{ steps.gitversion.outputs.nuGetVersionV2 }}"
 
         - name: Dotnet build
-          run:  dotnet build NHSUKViewComponents.sln
+          run:  dotnet build NHSUKViewComponents.sln --configuration release
 
         - name: Package nuget
           if: startsWith(github.ref, 'refs/heads/release')
