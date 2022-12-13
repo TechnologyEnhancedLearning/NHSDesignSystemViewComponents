@@ -7,19 +7,24 @@ jobs:
         SOLUTION: 'NHSUKViewComponents.sln'
       name: Build and test
       runs-on: ubuntu-latest
+      strategy: 
+          matrix:
+           dotnet-version: ['3.1.x']
       steps:
         - uses: actions/checkout@v2
+          with:
+           fetch-depth: 0
 
         - name: Setup .NET Core SDK 60
           uses: actions/setup-dotnet@v1
           with:
-            dotnet-version: 6.0.x
+            dotnet-version: ${{ matrix.dotnet-version }}
 
         - name: Install GitVersion
           uses: gittools/actions/gitversion/setup@v0.9.7
           with:
-            versionSpec: '5.x'
-
+            versionSpec: '5.5.0'
+            
         - name: Determine Version
           id:   gitversion
           uses: gittools/actions/gitversion/execute@v0.9.7
@@ -31,8 +36,8 @@ jobs:
             echo "Patch: ${{ steps.gitversion.outputs.patch }}"
             echo "NuGetVersionV2: ${{ steps.gitversion.outputs.nuGetVersionV2 }}"
 
-            - name: Dotnet build
-              run: dotnet build NHSUKViewComponents.sln
+        - name: Dotnet build
+          run:  dotnet build NHSUKViewComponents.sln
 
         - name: Package nuget
           if: startsWith(github.ref, 'refs/heads/release')
