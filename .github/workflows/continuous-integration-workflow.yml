@@ -35,6 +35,10 @@ jobs:
             echo "Minor: ${{ steps.gitversion.outputs.minor }}"
             echo "Patch: ${{ steps.gitversion.outputs.patch }}"
             echo "NuGetVersionV2: ${{ steps.gitversion.outputs.nuGetVersionV2 }}"
+            
+        - name: Add Azure artifact
+          run: dotnet nuget add source 'https://pkgs.dev.azure.com/e-LfH/_packaging/LearningHubFeed/nuget/v3/index.json' --name 'LearningHubFeed'  --username 'kevin.whittaker' --password ${{ secrets.AZUREDEVOPSKEY }} --store-password-in-clear-text
+
 
         - name: Dotnet build
           run:  dotnet build NHSUKViewComponents.sln --configuration release
