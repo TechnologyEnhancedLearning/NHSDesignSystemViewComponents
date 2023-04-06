@@ -17,6 +17,13 @@
             bool required
         )
         {
+            var model = ViewData.Model;
+
+            var property = model.GetType().GetProperty(aspFor);
+
+            var hasError = ViewData.ModelState[property?.Name]?.Errors?.Count > 0;
+            var errorMessage = hasError ? ViewData.ModelState[property?.Name]?.Errors[0].ErrorMessage : null;
+
             var radiosList = radios.Select(
                 r => new RadiosItemViewModel(
                     r.Enumeration.Name,
@@ -31,6 +38,8 @@
                 label,
                 string.IsNullOrEmpty(hintText) ? null : hintText,
                 radiosList,
+                errorMessage,
+                hasError,
                 required
             );
 
