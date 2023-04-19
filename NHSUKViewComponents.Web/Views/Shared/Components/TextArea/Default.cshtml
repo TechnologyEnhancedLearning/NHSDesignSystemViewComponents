@@ -48,8 +48,8 @@
               aria-invalid="@(Model.HasError ? "true" : null)"
               aria-describedby="@describedBy"
               data-val="@(Model.CharacterCount.HasValue ? "true" : "" )"
-              data-val-length-max="@(Model.CharacterCount.HasValue ? @Model.CharacterCount : "" )"
-              data-val-length="@(Model.CharacterCount.HasValue ? $"You can enter up to {@Model.CharacterCount} characters" : "" )">@Model.Value</textarea>
+              data-val-maxlength-max="@(Model.CharacterCount.HasValue ? @Model.CharacterCount : "" )"
+              data-val-maxlength="@(Model.CharacterCount.HasValue ? $"'{@Model.Name}' must not be larger than {@Model.CharacterCount} characters in length" : "" )">@Model.Value</textarea>
     @if (Model.CharacterCount.HasValue)
     {
         <div id="@Model.Name-info" class="nhsuk-hint">

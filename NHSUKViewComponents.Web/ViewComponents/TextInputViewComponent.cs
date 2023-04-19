@@ -29,8 +29,9 @@
             string hintText,
             string autocomplete,
             string cssClass,
-            bool required,
-            string? placeholderText = null
+            bool required,            
+            string? placeholderText = null,
+            string? requiredClientErrorMessage = null
         )
         {
             var model = ViewData.Model;
@@ -53,7 +54,8 @@
                 string.IsNullOrEmpty(cssClass) ? null : cssClass,
                 string.IsNullOrEmpty(hintText) ? null : hintText,
                 required,
-                string.IsNullOrEmpty(placeholderText) ? null : placeholderText
+                string.IsNullOrEmpty(placeholderText) ? null : placeholderText,
+                string.IsNullOrEmpty(requiredClientErrorMessage) ? null : requiredClientErrorMessage
             );
             return View(textBoxViewModel);
         }

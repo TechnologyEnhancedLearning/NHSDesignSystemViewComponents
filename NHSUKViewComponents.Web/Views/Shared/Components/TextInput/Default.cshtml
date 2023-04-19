@@ -24,7 +24,7 @@
     }
     @if (Model.Required)
     {
-        <div data-valmsg-for="@Model.Name" data-valmsg-replace="true" class="nhsuk-u-padding-top-1 nhsuk-u-padding-bottom-3">
+        <div data-valmsg-for="@Model.Name" data-valmsg-replace="true" class="nhsuk-error-message nhsuk-u-padding-top-1 nhsuk-u-padding-bottom-3">
             <span class="error-message--margin-bottom-1 nhsuk-error-message">
                 <span class="nhsuk-u-visually-hidden"></span>
             </span>
@@ -41,6 +41,6 @@
            aria-invalid="@(Model.HasError ? "true" : null )"
            aria-describedby="Model.HintText" s
            aria-required="@(Model.Required ? "true" : "false" )"
-           data-val-required="@(Model.Required ? $"{Model.Name} is required" : "" )"
+           data-val-required="@(Model.Required ? Model.RequiredClientErrorMessage : "" )"
            data-val="@(Model.Required ? "true" : "" )" />
 </div>
