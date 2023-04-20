@@ -15,7 +15,8 @@
             IEnumerable<SelectListItem> selectListOptions,
             string? hintText,
             string? cssClass,
-            bool required
+            bool required,
+            string? requiredClientSideErrorMessage = default
         )
         {
             var model = ViewData.Model;
@@ -36,7 +37,8 @@
                 string.IsNullOrEmpty(hintText) ? null : hintText,
                 errorMessage,
                 hasError,
-                required
+                required,
+                string.IsNullOrEmpty(requiredClientSideErrorMessage) ? null : requiredClientSideErrorMessage
             );
             return View(selectListViewModel);
         }

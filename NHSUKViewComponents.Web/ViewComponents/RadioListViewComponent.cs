@@ -14,7 +14,8 @@
             IEnumerable<RadiosItemViewModel> radios,
             bool populateWithCurrentValues,
             string hintText,
-            bool required
+            bool required,
+            string? requiredClientSideErrorMessage = default
         )
         {
             var radiosList = radios.Select(
@@ -31,7 +32,8 @@
                 label,
                 string.IsNullOrEmpty(hintText) ? null : hintText,
                 radiosList,
-                required
+                required,
+                string.IsNullOrEmpty(requiredClientSideErrorMessage) ? null : requiredClientSideErrorMessage
             );
 
             return View(viewModel);
@@ -42,7 +44,8 @@
             var model = ViewData.Model;
             var property = model.GetType().GetProperty(aspFor);
             var value = property?.GetValue(model);
-            return populateWithCurrentValue && value.Equals(radioItem.Value);
+
+            return populateWithCurrentValue && value != null && value.Equals(radioItem.Value);
         }
     }
 }

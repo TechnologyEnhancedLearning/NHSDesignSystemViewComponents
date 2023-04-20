@@ -17,6 +17,12 @@
       <div class="nhsuk-hint" id="@Model.Label.RemoveWhitespace()-hint">
         @Html.Raw(Model.HintText)
       </div>
+    }   
+
+    @if (Model.Required)
+    {
+        <div data-valmsg-for="@Model.AspFor" data-valmsg-replace="true" class="nhsuk-error-message nhsuk-u-padding-top-1 nhsuk-u-padding-bottom-3">
+        </div>
     }
 
     <div class="nhsuk-radios" aria-required="@(Model.Required ? "true" : "false" )">
@@ -30,6 +36,8 @@
                type="radio"
                value="@radio.Value"
                aria-describedby="@radio.Value-item-hint"
+               data-val-required="@(Model.Required ? Model.RequiredClientSideErrorMessage : "" )"
+               data-val="@(Model.Required ? "true" : "false" )"
                @(radio.Selected ? "checked" : string.Empty) />
           <label class="nhsuk-label nhsuk-radios__label" for="@radioId">
             @radio.Label

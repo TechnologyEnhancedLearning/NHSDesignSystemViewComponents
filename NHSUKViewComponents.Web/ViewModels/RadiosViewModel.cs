@@ -9,7 +9,8 @@
             string label,
             string hintText,
             IEnumerable<RadiosItemViewModel> radios,
-            bool required
+            bool required,
+            string? requiredClientSideErrorMessage = default
         )
         {
             AspFor = aspFor;
@@ -17,6 +18,7 @@
             HintText = hintText;
             Radios = radios;
             Required = required;
+            RequiredClientSideErrorMessage = requiredClientSideErrorMessage;
         }
 
         public string AspFor { get; set; }
@@ -27,5 +29,6 @@
 
         public IEnumerable<RadiosItemViewModel> Radios { get; set; }
         public bool Required { get; set; }
+        public string RequiredClientSideErrorMessage { get; set; }
     }
 }
