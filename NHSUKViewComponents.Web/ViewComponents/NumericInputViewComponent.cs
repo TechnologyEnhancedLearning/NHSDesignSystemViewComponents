@@ -13,7 +13,9 @@
             string type,
             string hintText,
             string cssClass,
-            bool required
+            bool required,
+            string? requiredClientSideErrorMessage = default,
+            string? regularExClientSideErrorMessage = default
         )
         {
             var model = ViewData.Model;
@@ -33,7 +35,9 @@
                 errorMessages,
                 string.IsNullOrEmpty(cssClass) ? null : cssClass,
                 string.IsNullOrEmpty(hintText) ? null : hintText,
-                required
+                required,
+                string.IsNullOrEmpty(requiredClientSideErrorMessage) ? null : requiredClientSideErrorMessage,
+                string.IsNullOrEmpty(regularExClientSideErrorMessage) ? null : regularExClientSideErrorMessage                
             );
             return View(numericInputViewModel);
         }

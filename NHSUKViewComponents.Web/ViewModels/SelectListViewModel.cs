@@ -17,7 +17,8 @@
             string? hintText = null,
             string? errorMessage = null,
             bool hasError = false,
-            bool required = false
+            bool required = false,
+            string? requiredClientErrorMessage = default
         )
         {
             Id = id;
@@ -31,6 +32,7 @@
             ErrorMessage = errorMessage;
             HasError = hasError;
             Required = required;
+            RequiredClientSideErrorMessage = requiredClientErrorMessage;
         }
 
         public string Id { get; set; }
@@ -44,5 +46,6 @@
         public string? ErrorMessage { get; set; }
         public bool HasError { get; set; }
         public bool Required { get; set; }
+        public string? RequiredClientSideErrorMessage { get; set; }
     }
 }

@@ -16,7 +16,8 @@
             IEnumerable<string> errorMessages,
             string? cssClass = null,
             string? hintText = null,
-            int? characterCount = null
+            int? characterCount = null,
+            string? maxLengthClientSideErrorMessage = default
         )
         {
             var errorMessageList = errorMessages.ToList();
@@ -32,6 +33,7 @@
             CharacterCount = characterCount;
             ErrorMessages = errorMessageList;
             HasError = errorMessageList.Any();
+            MaxLengthClientSideErrorMessage = maxLengthClientSideErrorMessage;
         }
 
         public string Id { get; set; }
@@ -45,5 +47,6 @@
         public int? CharacterCount { get; set; }
         public IEnumerable<string> ErrorMessages { get; set; }
         public bool HasError { get; set; }
+        public string MaxLengthClientSideErrorMessage { get; set; }
     }
 }

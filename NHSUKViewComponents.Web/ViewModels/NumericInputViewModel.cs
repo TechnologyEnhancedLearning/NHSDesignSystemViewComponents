@@ -16,7 +16,9 @@
             IEnumerable<string> errorMessages,
             string? cssClass = null,
             string? hintText = null,
-            bool required = false
+            bool required = false,
+            string? requiredClientSideErrorMessage = default,
+            string? regularExClientSideErrorMessage = default
         )
         {
             var errorMessageList = errorMessages.ToList();
@@ -31,6 +33,8 @@
             ErrorMessages = errorMessageList;
             HasError = errorMessageList.Any();
             Required = required;
+            RequiredClientSideErrorMessage = requiredClientSideErrorMessage;
+            RegularExClientSideErrorMessage = regularExClientSideErrorMessage;
         }
 
         public string Id { get; set; }
@@ -42,5 +46,7 @@
         public string? HintText { get; set; }
         public IEnumerable<string> ErrorMessages { get; set; }
         public bool Required { get; set; }
+        public string? RequiredClientSideErrorMessage { get; set; }
+        public string? RegularExClientSideErrorMessage { get; set; }
     }
 }

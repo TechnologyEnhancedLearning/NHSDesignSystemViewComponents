@@ -17,6 +17,7 @@
         /// <param name="hintText">Leave blank for no hint.</param>
         /// <param name="cssClass"></param>
         /// <param name="characterCount"></param>
+        /// <param name="maxLengthClientSideErrorMessage"></param>
         /// <returns></returns>
         public IViewComponentResult Invoke(
             string aspFor,
@@ -26,7 +27,9 @@
             bool spellCheck,
             string hintText,
             string cssClass,
-            int? characterCount)
+            int? characterCount,
+            string? maxLengthClientSideErrorMessage = default
+            )
         {
             var model = ViewData.Model;
 
@@ -42,7 +45,9 @@
                 errorMessages,
                 string.IsNullOrEmpty(cssClass) ? null : cssClass,
                 string.IsNullOrEmpty(hintText) ? null : hintText,
-                characterCount);
+                characterCount,
+                maxLengthClientSideErrorMessage
+                );
             return View(textBoxViewModel);
         }
     }
