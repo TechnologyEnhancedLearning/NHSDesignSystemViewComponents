@@ -15,6 +15,8 @@
             Label = label;
             HintText = hintText;
             Checkboxes = checkboxes;
+            ErrorMessage = errormessage;
+            Required = required;
         }
 
         public string Label { get; set; }
