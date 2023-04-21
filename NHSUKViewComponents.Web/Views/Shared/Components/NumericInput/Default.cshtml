@@ -1,4 +1,4 @@
-﻿@using NHSUKViewComponents.Web.ViewModels
+@using NHSUKViewComponents.Web.ViewModels
 @using NHSUKViewComponents.Web.Helpers
 @model NumericInputViewModel
 <div class="nhsuk-form-group @(Model.HasError ? "nhsuk-form-group--error" : "")">
@@ -23,7 +23,7 @@
         </div>
     }
 
-    if(!Model.HasError)
+    @if(!Model.HasError)
     {
         <div data-valmsg-for="@Model.Name" data-valmsg-replace="true" class="nhsuk-error-message nhsuk-u-padding-top-1 nhsuk-u-padding-bottom-3">
         </div>
