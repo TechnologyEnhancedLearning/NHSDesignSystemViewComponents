@@ -42,7 +42,7 @@
             var model = ViewData.Model;
             var property = model.GetType().GetProperty(aspFor);
             var value = property?.GetValue(model);
-            return populateWithCurrentValue && value.Equals(radioItem.Value);
+            return populateWithCurrentValue && value != null && value.Equals(radioItem.Value);
         }
     }
 }
