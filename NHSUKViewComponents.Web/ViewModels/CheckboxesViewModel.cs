@@ -9,7 +9,8 @@
             string? hintText,
             string? errormessage,
             IEnumerable<CheckboxItemViewModel> checkboxes,
-            bool required = false
+            bool required = false,
+            string? cssClass = default
         )
         {
             Label = label;
@@ -17,11 +18,14 @@
             Checkboxes = checkboxes;
             ErrorMessage = errormessage;
             Required = required;
+            Class = cssClass;
         }
 
         public string Label { get; set; }
 
         public string? HintText { get; set; }
+
+        public string? Class { get; set; }
 
         public string? ErrorMessage { get; set; }
 

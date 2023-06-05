@@ -1,6 +1,7 @@
 ﻿namespace NHSUKViewComponents.Web.ViewModels
 {
     using System.Collections.Generic;
+    using System.Linq;
 
     public class RadiosViewModel
     {
@@ -9,16 +10,22 @@
             string label,
             string hintText,
             IEnumerable<RadiosItemViewModel> radios,
+            IEnumerable<string> errorMessages,
             bool required,
-            string? requiredClientSideErrorMessage = default
+            string? requiredClientSideErrorMessage = default,
+            string? cssClass = default
         )
         {
+            var errorMessageList = errorMessages.ToList();
             AspFor = aspFor;
             Label = !required && !label.EndsWith("(optional)") ? label + " (optional)" : label;
             HintText = hintText;
             Radios = radios;
+            ErrorMessages = errorMessageList;
+            HasError = errorMessageList.Any();
             Required = required;
             RequiredClientSideErrorMessage = requiredClientSideErrorMessage;
+            Class = cssClass;
         }
 
         public string AspFor { get; set; }
@@ -26,6 +33,9 @@
         public string Label { get; set; }
 
         public string HintText { get; set; }
+        public string? Class { get; set; }
+        public IEnumerable<string> ErrorMessages { get; set; }
+        public readonly bool HasError;
 
         public IEnumerable<RadiosItemViewModel> Radios { get; set; }
         public bool Required { get; set; }

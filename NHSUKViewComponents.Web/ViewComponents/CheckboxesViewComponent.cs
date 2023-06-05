@@ -13,7 +13,8 @@
             bool populateWithCurrentValues,
             string? errormessage,
             string? hintText,
-            bool required
+            bool required,
+            string cssClass = default
         )
         {
             var checkboxList = checkboxes.Select(
@@ -32,7 +33,8 @@
                 string.IsNullOrEmpty(hintText) ? null : hintText,
                 errormessage,
                 checkboxList,
-                required
+                required,
+                string.IsNullOrEmpty(cssClass) ? null : cssClass
             );
 
             return View(viewModel);
