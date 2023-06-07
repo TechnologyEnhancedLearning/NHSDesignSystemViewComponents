@@ -16,7 +16,8 @@
             string hintText,
             bool required,
             string? requiredClientSideErrorMessage = default,
-            string cssClass = default
+            string cssClass = default,
+            string? optionalRadio = default
         )
         {
             var model = ViewData.Model;
@@ -24,7 +25,7 @@
             var errorMessages = ViewData.ModelState[property?.Name]?.Errors.Select(e => e.ErrorMessage) ??
                                 new string[] { };
 
-            var radiosList = radios.Select(
+            var radiosList = radios.Where(x=>x.Label != optionalRadio).Select(
                 r => new RadiosItemViewModel(
                     r.Value,
                     r.Label,
@@ -32,12 +33,16 @@
                     r.HintText
                 )
             );
+            
 
             var viewModel = new RadiosViewModel(
                 aspFor,
                 label,
                 string.IsNullOrEmpty(hintText) ? null : hintText,
                 radiosList,
+                string.IsNullOrEmpty(optionalRadio) ? null : radios.Where(x => x.Label == optionalRadio)
+                                                                   .Select(r => new RadiosItemViewModel(r.Value, r.Label, IsSelectedRadio(aspFor, r, populateWithCurrentValues), r.HintText))
+                                                                   .FirstOrDefault(),
                 errorMessages,
                 required,
                 string.IsNullOrEmpty(requiredClientSideErrorMessage) ? null : requiredClientSideErrorMessage,
