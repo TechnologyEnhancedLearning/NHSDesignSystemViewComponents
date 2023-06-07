@@ -18,6 +18,7 @@
         /// <param name="yearId"></param>
         /// <param name="cssClass">Leave blank for no custom css class.</param>
         /// <param name="hintTextLines">Leave blank for no hint.</param>
+        /// <param name="isPageHeading">Leave blank/false for set label as page body .</param>
         /// <returns></returns>
         public IViewComponentResult Invoke(
             string id,
@@ -26,7 +27,8 @@
             string monthId,
             string yearId,
             string cssClass,
-            IEnumerable<string>? hintTextLines
+            IEnumerable<string>? hintTextLines,
+            bool? isPageHeading = false
         )
         {
             var model = ViewData.Model;
@@ -59,7 +61,8 @@
                 yearErrors?.Count > 0,
                 nonEmptyErrors,
                 string.IsNullOrEmpty(cssClass) ? null : cssClass,
-                hintTextLines.Any() ? hintTextLines : null
+                hintTextLines.Any() ? hintTextLines : null,
+                isPageHeading
             );
             return View(viewModel);
         }

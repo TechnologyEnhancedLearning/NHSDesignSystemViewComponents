@@ -10,6 +10,7 @@
             string label,
             string hintText,
             IEnumerable<RadiosItemViewModel> radios,
+            RadiosItemViewModel optionalRadio,
             IEnumerable<string> errorMessages,
             bool required,
             string? requiredClientSideErrorMessage = default,
@@ -21,6 +22,7 @@
             Label = !required && !label.EndsWith("(optional)") ? label + " (optional)" : label;
             HintText = hintText;
             Radios = radios;
+            OptionalRadio = optionalRadio;
             ErrorMessages = errorMessageList;
             HasError = errorMessageList.Any();
             Required = required;
@@ -38,6 +40,7 @@
         public readonly bool HasError;
 
         public IEnumerable<RadiosItemViewModel> Radios { get; set; }
+        public RadiosItemViewModel OptionalRadio { get; set; }
         public bool Required { get; set; }
         public string RequiredClientSideErrorMessage { get; set; }
     }
