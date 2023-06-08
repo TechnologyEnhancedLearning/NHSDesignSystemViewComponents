@@ -17,7 +17,8 @@
             bool required,
             string? requiredClientSideErrorMessage = default,
             string cssClass = default,
-            string? optionalRadio = default
+            string? optionalRadio = default,
+            bool? isPageHeading = false
         )
         {
             var model = ViewData.Model;
@@ -46,7 +47,8 @@
                 errorMessages,
                 required,
                 string.IsNullOrEmpty(requiredClientSideErrorMessage) ? null : requiredClientSideErrorMessage,
-                string.IsNullOrEmpty(cssClass) ? null : cssClass
+                string.IsNullOrEmpty(cssClass) ? null : cssClass,
+                isPageHeading
             );
 
             return View(viewModel);
