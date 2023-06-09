@@ -14,7 +14,8 @@
             IEnumerable<string> errorMessages,
             bool required,
             string? requiredClientSideErrorMessage = default,
-            string? cssClass = default
+            string? cssClass = default,
+            bool? isPageHeading = false
         )
         {
             var errorMessageList = errorMessages.ToList();
@@ -28,6 +29,7 @@
             Required = required;
             RequiredClientSideErrorMessage = requiredClientSideErrorMessage;
             Class = cssClass;
+            IsPageHeading = isPageHeading;
         }
 
         public string AspFor { get; set; }
@@ -41,6 +43,7 @@
 
         public IEnumerable<RadiosItemViewModel> Radios { get; set; }
         public RadiosItemViewModel OptionalRadio { get; set; }
+        public bool? IsPageHeading { get; set; }
         public bool Required { get; set; }
         public string RequiredClientSideErrorMessage { get; set; }
     }

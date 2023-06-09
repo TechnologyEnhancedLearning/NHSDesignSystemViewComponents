@@ -11,9 +11,18 @@
 
     <fieldset class="nhsuk-fieldset" aria-describedby="@Model.Label.RemoveWhitespace()-hint">
         <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
-            <label class="nhsuk-fieldset__heading">
-                @Model.Label
-            </label>
+            @if (Model.IsPageHeading.GetValueOrDefault() == true)
+            {
+                <h1>
+                    @Model.Label
+                </h1>
+            }
+            else
+            {
+                <label class="nhsuk-fieldset__heading">
+                    @Model.Label
+                </label>
+            }
         </legend>
 
         @if (Model.HintText != null)
