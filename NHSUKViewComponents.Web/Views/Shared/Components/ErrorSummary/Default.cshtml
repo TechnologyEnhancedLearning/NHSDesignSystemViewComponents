@@ -9,7 +9,7 @@
       </h2>
       <div class="nhsuk-error-summary__body">
         <ul class="nhsuk-list nhsuk-error-summary__list">
-          @foreach (var item in Model.Errors)
+          @foreach (var item in Model.Errors.OrderBy(x=>x.Key))
           {
             <li>
               <a href="#@item.Key">@item.ErrorMessage</a>
