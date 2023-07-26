@@ -8,7 +8,7 @@ jobs:
       name: Build and publish package
       runs-on: ubuntu-latest
       permissions:
-          issues: write
+          packages: write
       strategy: 
           matrix:
            dotnet-version: ['3.1.x']
