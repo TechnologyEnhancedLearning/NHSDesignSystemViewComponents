@@ -7,8 +7,6 @@ jobs:
         SOLUTION: 'NHSUKViewComponents.sln'
       name: Build and publish package
       runs-on: ubuntu-latest
-      permissions:
-          packages: write
       strategy: 
           matrix:
            dotnet-version: ['3.1.x']
@@ -41,18 +39,15 @@ jobs:
         - name: Add Azure artifact
           run: dotnet nuget add source 'https://pkgs.dev.azure.com/e-LfH/_packaging/LearningHubFeed/nuget/v3/index.json' --name 'LearningHubFeed'  --username 'kevin.whittaker' --password ${{ secrets.AZUREDEVOPSKEY }} --store-password-in-clear-text
 
-        - name: Add github registry
-          run: dotnet nuget add source --username 'kevin.whittaker' --password ${{ secrets.NUGETAPIKEY }} --store-password-in-clear-text --name githubPackages "https://nuget.pkg.github.com/TechnologyEnhancedLearning/index.json"
-       
         - name: Dotnet build
           run:  dotnet build NHSUKViewComponents.sln --configuration release
 
         - name: Package nuget        
-          run: dotnet pack NHSUKViewComponents.sln --configuration release -o:package /p:PackageVersion=${{ steps.gitversion.outputs.nuGetVersionV2  }}
+          run: dotnet pack NHSUKViewComponents.sln --configuration release -o:package /p:PackageVersion=${{ v1.0.20  }}
 
         - name: Push generated package to GitHub registry
           if: startsWith(github.ref, 'refs/tags/v')
-          run: dotnet nuget push ./package/*.nupkg  --api-key ${{ secrets.NUGETAPIKEY }}  --source "githubPackages"  --skip-duplicate
+          run: dotnet nuget push ./package/*.nupkg  --source https://nuget.pkg.github.com/TechnologyEnhancedLearning/index.json   --api-key ${{ secrets.NUGETAPIKEY }}  --skip-duplicate
           
         - name: Push generated package to Azure Feed
           if: startsWith(github.ref, 'refs/tags/v')
