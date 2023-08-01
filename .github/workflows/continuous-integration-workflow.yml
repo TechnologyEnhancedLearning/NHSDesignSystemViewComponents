@@ -43,7 +43,7 @@ jobs:
           run:  dotnet build NHSUKViewComponents.sln --configuration release
 
         - name: Package nuget        
-          run: dotnet pack NHSUKViewComponents.sln --configuration release -o:package /p:PackageVersion=${{ v1.0.20  }}
+          run: dotnet pack NHSUKViewComponents.sln --configuration release -o:package /p:PackageVersion="v1.0.20"
 
         - name: Push generated package to GitHub registry
           if: startsWith(github.ref, 'refs/tags/v')
