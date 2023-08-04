@@ -11,9 +11,12 @@
             <ul class="nhsuk-list nhsuk-error-summary__list">
                 @foreach (var item in Model.Errors.OrderBy(x => x.Key))
                 {
-                    <li>
-                        <a href="#@item.Key">@item.ErrorMessage</a>
-                    </li>
+                    if (!string.IsNullOrWhiteSpace(item.ErrorMessage))
+                    {
+                        <li>
+                            <a href="#@item.Key">@item.ErrorMessage</a>
+                        </li>
+                    }  
                 }
             </ul>
         </div>
