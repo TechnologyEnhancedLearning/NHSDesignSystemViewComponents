@@ -9,7 +9,7 @@
 
 <div class="nhsuk-form-group @(Model.HasError ? "nhsuk-form-group--error" : "")">
 
-    <fieldset class="nhsuk-fieldset" aria-describedby="@Model.Label.RemoveWhitespace()-hint">
+    <fieldset class="nhsuk-fieldset" aria-describedby="@(!string.IsNullOrEmpty(Model.HintText) ? $"{Model.Label.RemoveWhitespace()}-hint" : string.Empty)">
         <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
             @if (Model.IsPageHeading.GetValueOrDefault() == true)
             {
