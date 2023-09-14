@@ -6,6 +6,7 @@
     var dayErrorCss = Model.HasDayError ? "nhsuk-input--error" : "";
     var monthErrorCss = Model.HasMonthError ? "nhsuk-input--error" : "";
     var yearErrorCss = Model.HasYearError ? "nhsuk-input--error" : "";
+    var hintTextLine = string.Empty;
 }
 
 <div class="@Model.CssClass @errorCss" id="@Model.Id">
@@ -27,11 +28,13 @@
         {
             @foreach (var hintText in Model.HintTextLines)
             {
-                <div class="nhsuk-hint" id="@Model.Id-hint">
-                    @hintText
-                </div>
+                hintTextLine = hintText;
             }
         }
+
+        <div class="nhsuk-hint" id="@Model.Id-hint">
+            @hintTextLine
+        </div>
 
         @if (Model.HasError)
         {
