@@ -6,6 +6,7 @@
     var dayErrorCss = Model.HasDayError ? "nhsuk-input--error" : "";
     var monthErrorCss = Model.HasMonthError ? "nhsuk-input--error" : "";
     var yearErrorCss = Model.HasYearError ? "nhsuk-input--error" : "";
+    var hintTextLine = string.Empty;
 }
 
 <div class="@Model.CssClass @errorCss" id="@Model.Id">
@@ -28,10 +29,14 @@
             @foreach (var hintText in Model.HintTextLines)
             {
                 <div class="nhsuk-hint" id="@Model.Id-hint">
-                    @hintText
+                    hintTextLine = hintText;
                 </div>
             }
         }
+  
+          <div class="nhsuk-hint" id="@Model.Id-hint">
+            @hintTextLine
+          </div>
 
         @if (Model.HasError)
         {
@@ -53,6 +58,9 @@
                            value="@Model.DayValue"
                            type="number"
                            pattern="[0-9]*"
+                           min="1"
+                           max="31"
+                           step="1"
                            inputmode="numeric" />
                 </div>
             </div>
@@ -65,6 +73,9 @@
                            value="@Model.MonthValue"
                            type="number"
                            pattern="[0-9]*"
+                           min="1"
+                           max="12"
+                           step="1"
                            inputmode="numeric" />
                 </div>
             </div>
@@ -77,6 +88,9 @@
                            value="@Model.YearValue"
                            type="number"
                            pattern="[0-9]*"
+                           min="1900"
+                           max="9999"
+                           step="1"
                            inputmode="numeric" />
                 </div>
             </div>
