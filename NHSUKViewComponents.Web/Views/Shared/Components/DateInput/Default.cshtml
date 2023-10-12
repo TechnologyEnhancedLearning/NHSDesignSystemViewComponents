@@ -28,13 +28,15 @@
         {
             @foreach (var hintText in Model.HintTextLines)
             {
-                hintTextLine = hintText;
+                <div class="nhsuk-hint" id="@Model.Id-hint">
+                    hintTextLine = hintText;
+                </div>
             }
         }
-
-        <div class="nhsuk-hint" id="@Model.Id-hint">
+  
+          <div class="nhsuk-hint" id="@Model.Id-hint">
             @hintTextLine
-        </div>
+          </div>
 
         @if (Model.HasError)
         {
