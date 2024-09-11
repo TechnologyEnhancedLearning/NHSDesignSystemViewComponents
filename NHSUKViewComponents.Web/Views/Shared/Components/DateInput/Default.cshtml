@@ -104,16 +104,13 @@
 
         const errorElement = document.getElementById('date-error');
         for (let field of fields) {
-            console.log('id: ', field.id)
             const inputElement = document.getElementById(field.id);
-            console.log('el: ', inputElement)
 
             inputElement.addEventListener('input', function (event) {
-                console.log(event)
+
                 if (event.inputType === 'deleteContentBackward') {
                     return;
                 }
-
 
                 const value = event.data;
                 const min = parseInt(inputElement.getAttribute('min'));
@@ -125,7 +122,6 @@
 
                 setTimeout(function () {
                     if (value < 1 || value > max || !value.match(/^[0-9]*$/)) {
-                        console.log('not matched')
                         inputElement.value = inputElement.value.slice(0, -1) + 1;
                         inputElement.value = inputElement.value.slice(0, -1);
                         inputElement.setAttribute('aria-invalid', 'true');
