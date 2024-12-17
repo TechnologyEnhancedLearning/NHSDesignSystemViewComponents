@@ -25,6 +25,9 @@ jobs:
         - name: Install ICU library
           run: sudo apt-get update && sudo apt-get install -y libicu-dev
 
+        - name: Enable Invariant Globalization
+          run: echo "DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1" >> $GITHUB_ENV
+
         - name: Install GitVersion
           uses: gittools/actions/gitversion/setup@v0.9.7
           with:
