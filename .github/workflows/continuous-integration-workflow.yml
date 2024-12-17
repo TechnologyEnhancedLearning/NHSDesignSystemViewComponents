@@ -6,7 +6,7 @@ jobs:
         BUILD_CONFIG: 'Release'
         SOLUTION: 'NHSUKViewComponents.sln'
       name: Build and publish package
-      runs-on: ubuntu-latest
+      runs-on: ubuntu-20.04 
       permissions:
           packages: write
       strategy: 
@@ -19,14 +19,6 @@ jobs:
 
         - name: Install ICU library
           run: sudo apt-get update && sudo apt-get install -y libicu-dev
-
-        - name: Install libssl1.1 manually
-          run: |
-            wget http://security.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.19_amd64.deb
-            sudo dpkg -i libssl1.1_1.1.1f-1ubuntu2.19_amd64.deb
-
-        - name: Enable Invariant Globalization
-          run: echo "DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1" >> $GITHUB_ENV
 
         - name: Setup .NET Core SDK 60
           uses: actions/setup-dotnet@v1
