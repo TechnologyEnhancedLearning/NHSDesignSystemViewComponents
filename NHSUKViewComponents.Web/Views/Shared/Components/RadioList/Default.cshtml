@@ -9,7 +9,7 @@
 
 <div class="nhsuk-form-group @(Model.HasError ? "nhsuk-form-group--error" : "")">
 
-    <fieldset class="nhsuk-fieldset" aria-describedby="@(!string.IsNullOrEmpty(Model.HintText) ? $"{Model.Label.RemoveWhitespace()}-hint" : string.Empty)">
+    <fieldset id="@Model.AspFor" class="nhsuk-fieldset" aria-describedby="@(!string.IsNullOrEmpty(Model.HintText) ? $"{Model.Label.RemoveWhitespace()}-hint" : string.Empty)">
         <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
             @if (Model.IsPageHeading.GetValueOrDefault() == true)
             {
@@ -131,19 +131,4 @@
 
         </div>
     </fieldset>
-    <script>
-        window.onload = function() {
-            const id = "@Model.AspFor";
-            const radioForm = document.querySelector("main form[novalidate='novalidate']");
-            radioForm.addEventListener("submit", () => {
-                const errorMessageParent = document.querySelector("div[data-valmsg-for='" + id + "']");
-                const errorMessage = errorMessageParent.innerHTML;
-                errorMessageParent.innerHTML = "";
-
-                setTimeout(function () {
-                    errorMessageParent.innerHTML = errorMessage;
-                }, 0);
-            });
-        };
-    </script>
 </div>
