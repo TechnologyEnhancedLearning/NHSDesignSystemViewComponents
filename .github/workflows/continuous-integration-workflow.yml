@@ -6,7 +6,7 @@ jobs:
         BUILD_CONFIG: 'Release'
         SOLUTION: 'NHSUKViewComponents.sln'
       name: Build and publish package
-      runs-on: ubuntu-latest
+      runs-on: ubuntu-20.04 
       permissions:
           packages: write
       strategy: 
@@ -16,6 +16,9 @@ jobs:
         - uses: actions/checkout@v2
           with:
            fetch-depth: 0
+
+        - name: Install ICU library
+          run: sudo apt-get update && sudo apt-get install -y libicu-dev
 
         - name: Setup .NET Core SDK 60
           uses: actions/setup-dotnet@v1
