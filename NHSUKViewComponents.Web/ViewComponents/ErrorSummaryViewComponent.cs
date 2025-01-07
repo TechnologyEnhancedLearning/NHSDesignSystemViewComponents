@@ -13,9 +13,23 @@
                 .SelectMany(kvp => kvp.Value.Errors.Select(e => new ErrorSummaryListItem(kvp.Key, e.ErrorMessage)))
                 .ToList();
 
+            var groupingMetadata = ViewData["GroupedFormControlMetadata"] as Dictionary<string, bool>;
+
+            foreach (var error in errors)
+            {
+                string key = error.Key;
+                bool isGrouped = groupingMetadata != null && groupingMetadata.ContainsKey(key) && groupingMetadata[key];
+
+                if (isGrouped)
+                {
+                    error.Key += "-0";
+                }
+            }
+
             var orderedErrors = GetOrderedErrors(errors, orderOfPropertyNames ?? new string[0]);
 
             var errorSummaryViewModel = new ErrorSummaryViewModel(orderedErrors);
+
             return View(errorSummaryViewModel);
         }
 
