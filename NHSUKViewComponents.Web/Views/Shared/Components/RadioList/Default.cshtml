@@ -65,6 +65,7 @@
                                    aria-describedby="@(!string.IsNullOrEmpty(radio.HintText) ? $"{radio.Value}-item-hint" : string.Empty)"
                                    data-val-required="@(Model.Required ? Model.RequiredClientSideErrorMessage : "")"
                                    data-val="@(Model.Required ? "true" : "false")"
+                                   aria-invalid="@(Model.Required ? "true" : "false")"
                             @(radio.Selected ? "checked" : string.Empty) />
                             <label class="nhsuk-label nhsuk-radios__label" for="@radioId">
                                 @radio.Label
@@ -89,6 +90,7 @@
                                aria-describedby="@(!string.IsNullOrEmpty(radio.HintText) ? $"{radio.Value}-item-hint" : string.Empty)"
                                data-val-required="@(Model.Required ? Model.RequiredClientSideErrorMessage : "")"
                                data-val="@(Model.Required ? "true" : "false")"
+                               aria-invalid="@(Model.Required ? "true" : "false")"
                         @(radio.Selected ? "checked" : string.Empty) />
                         <label class="nhsuk-label nhsuk-radios__label" for="@radioId">
                             @radio.Label
